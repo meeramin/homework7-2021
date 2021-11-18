@@ -38,5 +38,5 @@ document.querySelector("#mute").addEventListener("click", function() {
 
 document.querySelector("#slider").addEventListener("click", function() {
 	var x = document.querySelector("#slider").value;
-	audio.volume = x/100.0;
+	video.volume = x/100.0;
 });
