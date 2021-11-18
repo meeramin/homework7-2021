@@ -6,6 +6,8 @@ window.addEventListener("load", function() {
 });
 
  document.querySelector("#play").addEventListener("click", function() {
+	var x = document.querySelector("#slider").value;
+	document.querySelector("#volume").innerHTML = x + "%";
  	console.log("Play Video");
 	video.play();
 });
@@ -26,7 +28,13 @@ document.querySelector("#faster").addEventListener("click", function() {
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-	video.currentTime = video.currentTime + 15.0;
+	
+	if(video.currentTime + 15.0 > video.duration){
+		video.currentTime = 0;
+	}
+	else{
+		video.currentTime = video.currentTime + 15.0;
+	}
 	console.log("Skip ahead to: " + video.currentTime);
 });
 
@@ -46,6 +54,7 @@ document.querySelector("#slider").addEventListener("click", function() {
 	var x = document.querySelector("#slider").value;
 	video.volume = x/100.0;
 	console.log("New volume is: "+ video.volume);
+	document.querySelector("#volume").innerHTML = x + "%";
 });
 
 document.querySelector("#vintage").addEventListener("click", function() {
